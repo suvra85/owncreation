@@ -1,0 +1,37 @@
+<div class="tribemanPictureGrid triemanPictureGrid" data-ng-controller="tribemanPictureController" style="background: #ffffff;min-height: 300px;">
+  <div class="col-md-12" >
+   <div class="row" style="margin-top:15px;">
+     <div class="col-md-6">
+      <span ng-if="!loadingAlbum && (tribemanAlbumPicutures.length>0)">Albums</span>
+     </div>
+     <div class="col-md-6"><span class="addPictureBtn" ng-if="!loadingAlbum && (tribemanAlbumPicutures.length>0)"> <button ng-click="addPictureOpen('album');" translate>Add Album</button></span>
+     </div>
+     </div>
+    <div class="row">
+      <div class="col-md-12" ng-if="!loadingAlbum && (tribemanAlbumPicutures.length>0)" tooltip-html-unsafe="Click To View Album Pictures" tooltip-placement="top">
+          <slick class="slider" settings="slickConfig" ng-if="slickConfig1Loaded" dots="true" style="outline:none!important;">
+             <div ng-repeat="image in allAlbums track by $index">
+                 <div style="text-align:center" >
+                 <span ng-if="isLoggedUser" class="picAlbumDelBack" ng-click="deleteAlbum(image,image.album)"  style="outline:none!important;"><i class="fa fa-trash-o picDel" aria-hidden="true"></i></span>
+                  <img ng-src="{{image.promoPic}}" ng-click="AlbumDetails(image.album,$index);"  ng-class="{'activeAlbum':($index==currentAlnum)}" style="width:100%;height:100px" ng-style="{'border':($index==currentAlnum)?'3px solid #00cfe6':''};"/>
+                </div>
+              </div>
+          </slick>
+
+      </div>
+      <div class="col-md-12">
+        
+             <p ng-if="!loadingAlbum && (tribemanAlbumPicutures.length==0) && !isLoggedUser" class="noResult">No Album Found</p>
+
+         
+             <p class="addPictureBtn" ng-if="!loadingAlbum && (tribemanAlbumPicutures.length == 0 || tribemanAlbumPicutures == null) 
+        && isLoggedUser"> <button style="right:0px;" ng-click="addPictureOpen('album');" translate>Create Your First Album</button></p>
+      </div>
+   </div>
+
+
+
+
+  </div>
+</div>
+

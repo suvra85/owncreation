@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+    <table id="tbl_jaar">
+        <thead>
+            <tr>
+                <th>Places</th>
+                <th>Nos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1st</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>1.01st</td>
+                <td>1.01</td>
+            </tr>
+            <tr>
+                <td>2.33nd</td>
+                <td>3.01</td>
+            </tr>
+            <tr>
+                <td>3rd</td>
+                <td>4.01</td>
+            </tr>
+            <tr>
+                <td>4th</td>
+                <td>1.05</td>
+            </tr>
+            <tr>
+                <td>5th</td>
+                <td>6.01</td>
+            </tr>
+            <tr>
+                <td>0.044</td>
+                <td>0.044</td>
+            </tr>
+            <tr>
+                <td>7th</td>
+                <td>1.01</td>
+            </tr>
+            <tr>
+                <td>8th</td>
+                <td>1.01</td>
+            </tr>
+            <tr>
+                <td>9th</td>
+                <td>1.01</td>
+            </tr>
+            <tr>
+                <td>10.3th</td>
+                <td>10.01</td>
+            </tr>
+            <tr>
+                <td>0.01st</td>
+                <td>1101</td>
+            </tr>
+            <tr>
+                <td>0.01st</td>
+                <td>1101</td>
+            </tr>
+            <tr>
+                <td>0.01st</td>
+                <td>1101</td>
+            </tr>
+            <tr>
+                <td>0.01st</td>
+                <td>1101</td>
+            </tr>
+            <tr>
+                <td>0.01st</td>
+                <td>1101</td>
+            </tr>
+            <tr>
+                <td>0.01st</td>
+                <td>1101</td>
+            </tr>
+            <tr>
+                <td>0.01st</td>
+                <td>1101</td>
+            </tr>
+            <tr>
+                <td>0.01st</td>
+                <td>1101</td>
+            </tr>
+            <tr>
+                <td>0.01st</td>
+                <td>1101</td>
+            </tr>
+            <tr>
+                <td>0.01st</td>
+                <td>1101</td>
+            </tr>
+            <tr>
+                <td>0.01st</td>
+                <td>1101</td>
+            </tr>
+            <tr>
+                <td>0.01st</td>
+                <td>1101</td>
+            </tr>
+        </tbody>
+    </table>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js"></script>
+  <!--   <script type="text/javascript" src="http://cdn.datatables.net/fixedheader/2.1.0/js/dataTables.fixedHeader.min.js"></script> -->
+
+  <script src="jquery.fixedheadertable.min.js"></script>
+    <link href="https://cdn.datatables.net/1.10.10/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="http://cdn.datatables.net/fixedheader/2.1.0/css/dataTables.fixedHeader.min.css"> -->
+    <script>
+    // Code goes here
+    $(function() {
+
+        jQuery.extend(jQuery.fn.dataTableExt.oSort, {
+            "custom-sort-num-pre": function(a) {
+                a = (a === "-" || a === "") ? 0 : a.replace(/[^\d\-\.]/g, "");
+                return parseFloat(a);
+            },
+
+            "custom-sort-num-asc": function(a, b) {
+                return a - b;
+            },
+
+            "custom-sort-num-desc": function(a, b) {
+                return b - a;
+            }
+        });
+
+        var table = $('#tbl_jaar').dataTable({
+            columnDefs: [{
+                type: 'custom-sort-num',
+                targets: 0
+            }, {
+                type: 'custom-sort-num',
+                targets: -1
+            }],
+
+
+        });
+        $('#tbl_jaar').fixedHeaderTable('show');
+       // new $.fn.dataTable.FixedHeader(table);
+
+
+    })
+    </script>
+</body>
+
+</html>

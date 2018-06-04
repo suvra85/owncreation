@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title>Directive Form Validation</title>
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body ng-app="myApp">
+<form name="myfrom" controller="myFromCtrl">
+	<div class="form-group">
+		<label for="">Postal Code</label>
+		<input type="text" class="form-control" id="myfiled" name="myfiled" ng-model="postalCode" placeholder="Postal code"  postal-code-validator>
+		<p ng-if="myfrom.myfiled.$error.postal">Postal Code is Not Valid</p>
+	</div> 
+	<button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular.min.js"></script>
+<script type="text/javascript">
+angular.module("myApp",[])
+
+.controller("myFromCtrl",['$scope',function($scope){
+}])
+.directive("postalCodeValidator",function(){
+
+	return{
+		require:"ngModel",
+		link:function(scope,element,attrs,ctrl)
+		{
+			ctrl.$parsers.push(function(value){
+			 var regex=/[A-Z]\d[A-Z]\ ?\d[A-Z]\d/;
+              var success=regex.test(value);
+              ctrl.$setValidity("postal",success)
+              return value;
+			})
+
+		}
+	}
+})
+
+</script>
+</body>
+</html>

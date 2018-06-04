@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Two Line Chart -With Axes And Legend </title>
+
+    <style type="text/css">
+
+    .line1{
+      stroke:#ff9800;
+      fill:none;
+      stroke-width:2;
+    }
+
+    .line2{
+      stroke:#3f51b5;
+      fill:none;
+      stroke-width:2;
+    }
+
+    .x-axis,.y-axis{
+  stroke: black;
+  stroke-width: 1;
+  fill: none;
+}
+.legend{  fill:none;      stroke:#000;}
+
+.color1{
+      fill:#ff9800;
+
+
+}
+.color2{
+
+      fill:#3f51b5;
+ 
+}
+    </style>
+</head>
+
+<body>
+  
+<div class="chart"></div>
+
+    
+
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.0/d3.min.js"></script>
+ -->
+
+ <script type="text/javascript" src="d3.v3.min.js"></script>
+<script type="text/javascript">
+
+var width=800,height=500,margin={top:20,right:20,bottom:20,left:50};
+
+var svg=d3.select('.chart').append('svg').attr('width',width).attr('height',height);
+
+var parseDate = d3.time.format("%d-%b-%y").parse;
+
+var legendTags=['close','open'];
+
+d3.csv('line-data-2.csv',function(data){
+
+
+
+data.forEach(function(d,i) {
+    d.date = parseDate(d.date);
+    d.close = +d.close;
+    d.open = +d.open;
+    // if(i==0)
+    // {
+    //   legendTags.push('close')
+    //   legendTags.push('open')    
+    // }
+
+
+  });
+
+var xRange=d3.time.scale()
+            .range([margin.left,width-margin.right])
+            .domain(d3.extent(data, function(d) { return d.date; }));
+
+
+
+var yRange=d3.scale.linear()
+            .range([height-margin.top,margin.bottom])
+            .domain([0, d3.max(data, function(d) { return Math.max(d.close, d.open); })]);
+
+
+var xAxis =d3.svg.axis()
+                  .scale(xRange)
+                  .orient("bottom").ticks(5);          
+
+var yAxis =d3.svg.axis()
+                  .scale(yRange)
+                  .orient("left"); 
+
+var xdata=svg.append("g").attr("class", "x-axis")
+    .attr("transform", "translate(0," + (height-margin.bottom) + ")").call(xAxis);
+
+    // x-axis text vertical
+
+      // xdata.selectAll('text')
+      // .attr('x',9)
+      // .attr("y",0)
+      // .attr("dy",".35em")
+      // .attr("transform", "rotate(90)");
+  
+  svg.append("g").attr("class", "y-axis").attr("transform", "translate("+(margin.left)+",0)").call(yAxis);
+
+
+ var linesvg1=d3.svg.line()
+              .x(function(d){return xRange(d.date)})
+               .y(function(d){return yRange(d.close)})
+               .interpolate('linear');
+
+  var linedig1=svg.append("path")
+         .attr("d",linesvg1(data))
+         .attr('class','line1')
+
+
+
+ var linesvg2=d3.svg.line()
+              .x(function(d){return xRange(d.date)})
+               .y(function(d){return yRange(d.open)})
+               .interpolate('linear');
+
+  var linedig2=svg.append("path")
+         .attr("d",linesvg2(data))
+         .attr('class','line2');
+
+
+
+
+  // svg.selectAll('circle')
+  // .data(function (d) { return d; })
+  // .enter().append('circle')
+  // .attr('cx', function (d) { return xRange(d.x); })
+  // .attr('cy', function (d) { return yRange(d.y); })
+  // .attr('r', 3); 
+//Add Legend
+
+
+  var legend = svg.append("g")
+    .attr("class", "legend")
+    .attr("height", 100)
+    .attr("width", 100)
+    .attr('transform', 'translate(-20,50)')
+    .append('rect')
+      .attr("height", 98)
+      .attr("width", 98)
+      .attr("x", width -100)
+      .attr("y", function(d, i){ return i *  20;})
+      .attr("class", 'legend')
+      
+
+
+var legendbox = svg.append("g")
+       .attr("height", 80)
+    .attr("width", 80)     
+    
+    legendbox.selectAll('rect')
+      .data(legendTags)
+      .enter()
+      .append("rect")
+    .attr("x", width - 110)
+      .attr("y", function(d, i){ return i *30+80;})
+    .attr("width", 10)
+    .attr("height", 10)
+    .attr("class", function(d,i) { 
+        return 'color'+(i+1);
+      })
+      
+    legendbox.selectAll('text')
+      .data(legendTags)
+      .enter()
+      .append("text")
+      .attr("x", width - 80)
+      .attr("y", function(d, i){ return i *30+90;})
+    .text(function(d,i) {
+         return d
+      });
+
+             
+});
+</script>
+
+</body>
+
+</html>
+
+
+
+

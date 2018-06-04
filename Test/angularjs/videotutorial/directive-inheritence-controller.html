@@ -1,0 +1,82 @@
+<html>
+<head>
+	<title>Directive Controller</title>
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body ng-app="myApp">
+
+<form form-ctrl as="form">
+<button ng-click="form.newColor()">New Color</button>
+{{form.color}}
+<div ng-repeat="c in  form.color"  form-color-ctrl='c' as="colorForm">
+<label>Color {{$index+1}}</label>
+<select ng-model="colorForm.color.type" ng-change="colorForm.updatePlaceholder(colorForm.color.type)">
+	<option value="hex">Hex</option>
+	<option value="rgb">RGB</option>
+	<option value="color">Color</option>
+</select>	
+<input type="text" ng-model="colorForm.color.value" placeholder="{{colorForm.placeholder}}">
+<button ng-click="colorForm.remove()">&times;</button>
+</div>
+</form>
+
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular.min.js"></script>
+<script type="text/javascript">
+angular.module("myApp",[])
+
+.directive("formColorCtrl",function(){
+	return{
+		require:['^formCtrl','formColorCtrl'],
+
+		controller:function($scope,$attrs)
+		{
+			var color=$scope.$eval($attrs.formColorCtrl)
+			var placeholder={
+				hex:"Some Hex Color",
+				rgb:"Green Red Blue",
+				color:"Enter Color"
+			};	
+			this.color=color;
+			this.updatePlaceholder=function(type){	
+			this.placeholder=placeholder[type];
+		    };
+			this.updatePlaceholder('hex');
+			$scope[$attrs.as]=this;
+		},
+		link:function(scope,element,attrs,ctrl)
+		{
+
+			var colorCtrl=ctrl[1];
+			var formCtrl=ctrl[0];
+			colorCtrl.remove=function (color)
+			{
+				formCtrl.remove(colorCtrl.color);
+			}
+		}
+
+	};
+})
+.directive("formCtrl",function(){
+  return{
+  	controller:function($scope,$attrs){
+  	 this.color=[];
+     this.newColor=function(){
+	 this.color.push({});
+	 };	
+
+	 this.remove=function (color)
+	 {
+		var index=this.color.indexOf(color);
+	 	this.color.splice(index,1);
+	 };
+	 $scope[$attrs.as]=this;
+
+    }
+  };
+
+});
+</script>
+</body>
+</html>

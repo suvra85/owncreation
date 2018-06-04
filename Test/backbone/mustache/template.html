@@ -1,0 +1,26 @@
+<script id="dtaTemplate" type="text/template">
+	
+Employees
+<ul>
+{{#employees}}
+<li>
+
+{{firstName}} {{lastName}}
+{{#fullTime}}
+
+{{phone}}
+
+{{/fullTime}}
+
+<br>
+Manager 
+{{#manager}}
+	{{fname}} {{lname}}
+{{/manager}}
+
+
+</li>
+{{/employees}} 
+
+</ul>
+</script>

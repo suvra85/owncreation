@@ -1,0 +1,25 @@
+<h2>Users</h2>
+<input type="text" ng-model="searchText" placeholder="Search">
+<table class="table table-condensed"ng-show="users.length > 0">
+  <thead>
+    <tr>
+      <th  ng-click="sortData(username)">Username</th>
+      <th  ng-click="sortData(first_name)">First Name</th>
+      <th  ng-click="sortData(last_name)">Last Name</th>
+      <th  ng-click="sortData(address)">Address</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="user in users|filter:searchText|orderBy:sortColumn:reverseColumn">
+      <td>{{user.username}}</td>
+      <td>{{user.first_name}}</td>
+      <td>{{user.last_name}}</td>
+      <td>{{user.address}}</td>
+      <td> 
+         <button class="btn btn-warning" ng-click="updateUser(user)">Edit</button>
+         <button class="btn btn-danger" ng-click="deleteUser(user,$index)" >Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<a class="btn btn-primary" ng-click="addUser()" >Add New User</a>

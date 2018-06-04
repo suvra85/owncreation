@@ -1,0 +1,28 @@
+<section class="blue">
+    <div class="container">
+
+        <div class="content">
+            <slick class="slider" settings="slickConfig" ng-if="slickConfig1Loaded" dots="true">
+                <div ng-repeat="item in products track by $index">
+                    <div>
+                        ID {{item.id}}
+                    </div>
+                    <button class="btn btn-info" ng-click='slickConfig.method.rm($index)'>Remove({{$index}})</button>
+                </div>
+            </slick>
+
+            <div style="clear:both;">
+                <button class="btn btn-info" ng-click="slickConfig.method.slickFilter(':even')">Filter</button>
+                <button class="btn btn-info" ng-click="slickConfig.method.slickUnfilter()">unFilter</button>
+                <button class="btn btn-info" ng-click="slickConfig.method.slickGoTo(2)">GoTo(2)</button>
+                <button class="btn btn-info" ng-click="slickConfig.method.slickPrev()">Prev()</button>
+                <button class="btn btn-info" ng-click="slickConfig.method.slickNext()">Next()</button>
+                <button class="btn btn-info" ng-click="updateNumber1()">Update/Add()</button>
+                <button class="btn btn-info" ng-click='slickConfig.method.slickRemove(3)'>Remove(3)</button>
+                <button class="btn btn-info" ng-click='slickConfig.method.slickPlay()'>Play()</button>
+                <button class="btn btn-info" ng-click='slickConfig.method.slickPause()'>Pause()</button>
+            </div>
+
+        </div>
+    </div>
+</section> 

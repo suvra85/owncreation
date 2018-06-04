@@ -1,0 +1,68 @@
+
+<!doctype html>
+<html ng-app="myModule">
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular.min.js"></script>
+	<script type="text/javascript">
+            var myApp=angular
+                      .module("myModule",[])
+                      .controller("myController",function ($scope)
+                         {
+                            var employees=[
+                                            {"name":"Joy","age":30,"gender":"M"},
+                                            {"name":"Razia","age":27,"gender":"F"},
+                                            {"name":"Sinki","age":27,"gender":"F"},
+                                            {"name":"Sanjoy","age":30,"gender":"M"},
+                                            {"name":"Dolom","age":34,"gender":"F"},
+                                         ]
+                         	      $scope.message="Hello World";
+                                $scope.employees=employees;
+                                $scope.sortColumn="name";
+                                $scope.reverseColumn=false;
+                                $scope.sortData=function(column)
+                                {
+                                  $scope.reverseColumn=($scope.sortColumn==column)? !$scope.reverseColumn:false;
+                                  $scope.sortColumn=column;
+                                }
+
+                         });
+
+          
+
+	</script>
+</head>
+<body ng-controller="myController">
+<!--  Order By <select ng-model="sortColumn">
+    <option value="name"> Name</option>
+    <option value="age"> Age</option>
+    <option value="gender"> Gender</option>
+
+  </select> -->
+
+  <input type="text" ng-model="searchText" placeholder="Search By Name"> <input type="checkbox" ng-model="exactMatch" >Exact Match
+    <table>
+     <tr>
+    <td ng-click="sortData(name)">
+      Name
+    </td>
+        <td  ng-click="sortData(age)">
+      Age
+    </td>
+        <td  ng-click="sortData(gender)">
+      Gender
+    </td>
+     </tr>
+
+      <tr ng-repeat="employee in employees|filter:searchText| orderBy:sortColumn:reverseColumn">
+    <td>
+      {{ employee.name}}   
+    </td>
+        <td>
+{{ employee.age}}       </td>
+        <td>
+{{ employee.gender}}       </td>
+     </tr>
+    </table>
+</body>
+</html>

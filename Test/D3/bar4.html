@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bar Chart -Horizontal</title>
+
+    <style type="text/css">
+rect {
+  fill:blue;
+}
+
+path{
+
+   fill:none;
+   stroke:#cacaca;
+   
+}
+    </style>
+</head>
+
+<body>
+  
+<div class="chart"></div>
+
+    
+
+ <script type="text/javascript" src="d3.v3.min.js"></script>
+<script type="text/javascript">
+
+var width=800,height=500,margin={top:20,right:20,bottom:20,left:50};
+
+var svg=d3.select('.chart').append('svg').attr('width',width).attr('height',height);
+
+var xRange=d3.scale.ordinal()
+            .rangeRoundBands([margin.left,width-margin.right],0.5);
+
+
+
+var yRange=d3.scale.linear()
+            .rangeRound([height-margin.top,margin.bottom]);
+
+
+var xAxis =d3.svg.axis()
+                  .scale(xRange)
+                  .orient("bottom");          
+
+var yAxis =d3.svg.axis()
+                  .scale(yRange)
+                  .orient("left");  
+
+d3.json('bar-data1.json',function(data){
+
+data.forEach(function(d){
+  d.Letter=d.Letter;
+  d.Freq=+d.Freq;
+})
+
+xRange.domain(data.map(function(d) { return d.Letter; }));
+yRange.domain([0,d3.max(data,function(d){ return d.Freq;})]);
+
+
+svg.append("g").attr("transform", "translate(0," +( height-margin.bottom) + ")").call(xAxis);
+
+svg.append("g").attr("transform", "translate("+margin.left + ",0)").call(yAxis);
+
+svg.append('g').attr("transform", "translate(0,"+margin.top+")")
+.selectAll('rect')
+.data(data)
+.enter()
+.append("rect")
+.attr("x",function(d){ return xRange(d.Letter)})
+.attr("y",function(d){ return yRange(d.Freq)-40})
+.attr("width",function(d){ return 20})
+.attr("height",function(d){ return height-yRange(d.Freq)})
+
+});
+</script>
+
+</body>
+
+</html>
+
+
+
+

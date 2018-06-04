@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mustache External Template</title>
+   
+
+</head>
+
+<body>
+
+<script id="dtaTemplate" type="text/template">
+	
+<h1> {{name}} </h1>
+
+{{#siteExits}}
+<ul>
+{{#sites}}
+<li>{{.}}</li>
+{{/sites}} 
+
+</ul>
+{{/siteExits}}
+</script>
+
+ <script src="https://code.jquery.com/jquery-2.2.4.min.js" "></script>
+    <script src="mustache.js "></script>
+    <script>
+    var data = {
+        name: "First Mustache Template ",
+        sites: ["Backbone ", "Angular ", "Vue "],
+
+        
+    };
+
+     if(data.sites.length >0)
+     	data.siteExits=true;
+     else
+       data.siteExits=false;
+
+
+  var template=$("#dtaTemplate").html();
+	document.write(Mustache.to_html(template , data)); 
+
+    </script>
+</body>
+
+</html>

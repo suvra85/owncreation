@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>D3 Youtube 2</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.0/d3.min.js"></script>
+</head>
+
+<body>
+
+ <p>
+   DOM element < data element (exit) <br>
+   DOM element > data element (enter) <br>
+   DOM element = data element (update)
+
+ </p>   
+<script type="text/javascript">
+
+
+ var canvas = d3.select("body")
+        .append('svg')
+        .attr("width", 500)
+        .attr("height", 500);
+      
+
+
+var circle = canvas.append('circle')
+            .attr('cx', 50)
+            .attr('cy', 50)
+            .attr('r', 20);
+
+
+circle.transition()
+      .duration(1000)
+      .delay(2000)
+      .attr('cx', 150)
+      //.attr('fill','#dd0000')
+      .each('end',function(){ d3.select('fill','blue')}); // this function run after start of transition
+
+
+            
+</script>
+</body>
+
+</html>

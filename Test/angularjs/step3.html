@@ -1,0 +1,35 @@
+
+<!doctype html>
+<html ng-app="myModule">
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular.min.js"></script>
+	<script type="text/javascript">
+            var myApp=angular
+                      .module("myModule",[])
+                      .controller("myController",function ($scope)
+                         {
+                            var employee={"name":"Suvra","age":25,"gender":"F"}
+                         	      $scope.message="Hello World";
+                                $scope.employee=employee;
+
+                         });
+
+          
+
+	</script>
+</head>
+<body ng-controller="myController">
+
+      <input ng-model="employee.name" type="text"/>
+      <input ng-model="employee.age" type="text"/>
+
+	<div ng-bind="message"></div>
+
+	<div>
+     Name = {{ employee.name}}   
+     Age = {{ employee.age}}   
+
+	</div>
+</body>
+</html>

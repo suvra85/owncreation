@@ -1,0 +1,7 @@
+<ul class="hot-products">
+  {{#products}}
+  <li class="product">
+    {{name}}: ${{price}} {{#soldByEach}}each{{/soldByEach}}{{#soldByPound}}per lb{{/soldByPound}}
+  </li>
+  {{/products}}
+</ul>

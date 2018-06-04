@@ -1,0 +1,55 @@
+
+<!doctype html>
+<html ng-app="myModule">
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular.min.js"></script>
+	<script type="text/javascript">
+            var myApp=angular
+                      .module("myModule",[])
+                      .controller("myController",function ($scope)
+                         {
+                            var cricketers=[
+                                            {"name":"Abhimanyu Mithun","image":"http://lab-2.sketchdemos.com/P-440-cricketfantasy/assets/images/no_photo_available.jpg","team":"Indian","role":"BOWLER"},
+                                            {"name":"Ajinkya Rahane","image":"http://lab-2.sketchdemos.com/P-440-cricketfantasy/assets/images/player/thumb/1441959728ajinkya_rahane.jpg","team":"Indian","role":"BATSMAN"},
+                                            {"name":"Ambati Rayudu","image":"http://lab-2.sketchdemos.com/P-440-cricketfantasy/assets/images/player/thumb/1441959728ambati_rayudu.jpg","team":"Indian","role":"BATSMAN"},
+                                            {"name":"Amit Mishra","image":"http://lab-2.sketchdemos.com/P-440-cricketfantasy/assets/images/player/thumb/1441959728amit_mishra.jpg","team":"Indian","role":"BOWLER"},
+                                            {"name":"Anureet Singh","image":"http://lab-2.sketchdemos.com/P-440-cricketfantasy/assets/images/no_photo_available.jpg","team":"Indian","role":"BOWLER"},
+                                            {"name":"Axar Patel","image":"http://lab-2.sketchdemos.com/P-440-cricketfantasy/assets/images/player/thumb/1441959728axar_patel.jpg","team":"Indian","role":"ALLROUNDER"},
+
+                                         ]
+                         	    //$scope.message="Hello World";
+                                $scope.cricketers=cricketers;
+                                $scope.sortColumn="name";
+                                $scope.reverseColumn=false;
+                                $scope.sortData=function(column)
+                                {
+                                  $scope.reverseColumn=($scope.sortColumn==column)? !$scope.reverseColumn:false;
+                                  $scope.sortColumn=column;
+                                }
+								$scope.showType="grid";
+								$scope.pageinclude="grid.html";
+
+								$scope.changeView=function()
+                                {
+                                  $scope.pageinclude=($scope.showType=="grid")? "grid.html":"list.html";
+								  //$scope.showType=$scope.showType;
+                                }
+
+                         });
+
+          
+
+	</script>
+</head>
+<body ng-controller="myController">
+ Show By <select ng-model="showType" ng-change="changeView()">
+    <option value="list">List</option>
+    <option value="grid"> Grid</option>
+
+  </select> 
+    <div ng-include src="pageinclude"></div>
+	
+
+</body>
+</html>

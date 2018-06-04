@@ -1,0 +1,12 @@
+<ul>
+
+      <li ng-repeat="row in cricketers|orderBy:sortColumn:reverseColumn">
+     <p>
+	 <img ng-src="{{ row.image}}" alt="{{ row.name}}"/>   
+
+	 <span ng-bind="row.name"></span>
+     <span  ng-bind="row.role">
+     </span>
+	</p>
+     </li>
+ </ul>

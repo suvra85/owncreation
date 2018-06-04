@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mustache Condition,Dereferencing</title>
+   
+
+</head>
+
+<body>
+
+<script id="dtaTemplate" type="text/template">
+	
+Employees
+<ul>
+{{#employees}}
+<li>
+
+{{firstName}} {{lastName}}
+{{#fullTime}}
+
+{{phone}}
+
+{{/fullTime}}
+
+<br>
+Manager 
+{{#manager}}
+	{{fname}} {{lname}}
+{{/manager}}
+
+
+</li>
+{{/employees}} 
+
+</ul>
+</script>
+
+ <script src="https://code.jquery.com/jquery-2.2.4.min.js" "></script>
+    <script src="mustache.js "></script>
+    <script>
+    var data = {
+    employees: [
+    {   firstName: "Christophe",
+        lastName: "Coenraets",
+        fullTime: true,
+        phone: "617-123-4567",
+        manager:{ fname:"Arnab",lname:"Bhattacharyya"}
+    },
+    {   firstName: "John",
+        lastName: "Smith",
+        fullTime: false,
+        phone: "617-987-6543",
+        manager:{ fname:"Abhishek",lname:"Jain"}
+    },
+    {   firstName: "Lisa",
+        lastName: "Jones",
+        fullTime: true,
+        phone: "617-111-2323",
+        manager:{ fname:"Pankaj",lname:"Mallo"}
+    },
+    ]};
+
+    
+
+
+  	var template=$("#dtaTemplate").html();
+	document.write(Mustache.to_html(template , data)); 
+
+    </script>
+</body>
+
+</html>

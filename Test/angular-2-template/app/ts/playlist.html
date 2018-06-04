@@ -1,0 +1,59 @@
+
+<!-- 
+<div class="col-sm-4"  *ngFor="#row of videos">
+      <p><strong>{{row.title}}</strong></p>
+
+      <div>
+<iframe width="250" height="250" src="https://www.youtube.com/embed/{{row.videoCode}}" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <p>{{row.desc}}</p>
+    </div> -->
+
+
+<div>
+
+<form>
+  <div class="form-group">
+    <label for="title">Title:</label>
+    <input type="text" class="form-control" id="title"   name="title" #title.value>
+
+  </div>
+  <div class="form-group">
+    <label for="desc">Description:</label>
+    <textarea class="form-control" id="desc"  name="desc"  #desc></textarea>
+  </div>
+  <div class="form-group">
+    <label for="title">Video Code:</label>
+    <input type="text" class="form-control" name="videoCode"  id="videoCode" #videoCode>
+  </div>
+  <button type="button" class="btn btn-default" (click)="addData(title.value)">Submit</button>
+</form>
+</div>
+
+    <table class="table table-hover">
+    	<thead>
+			<tr>
+			<th>ID</th>
+			<th>Title</th>
+			<th>Description</th>
+			</tr>
+    	</thead>
+    	<tbody>
+    		<tr  *ngFor="#row of videos" (click)="showVideo(row)">
+			<td>{{row.id}}</td>
+			<td>{{row.title}}</td>
+			<td>{{row.desc}}</td>
+			</tr>
+    	</tbody>	
+
+    </table>
+
+
+<div id="popup1" class="overlay" [class.clicked]="isShow===true"  *ngIf="isShow===true">
+	<div class="popup">
+		<h2>{{vid.title}}</h2>
+		<a class="close" href="#"   (click)="hideVideo()">&times;</a>
+		<div class="content">
+<iframe width="350" height="250" src="https://www.youtube.com/embed/{{vid.videoCode}}" frameborder="0" allowfullscreen></iframe>		</div>
+	</div>
+</div>

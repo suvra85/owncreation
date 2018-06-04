@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mustache Template Basic</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" "></script>
+    <script src="mustache.js "></script>
+    <script>
+    var data = {
+        name: "First Mustache Template ",
+        sites: ["Backbone ", "Angular ", "Vue "],
+        
+    };
+
+  var template=" <h1> {{name}} </h1>"
+	+"{{#sites}}"
+		+"{{.}}"
+	+"{{/sites}} "
+    +"{{^sites}}"
+        +"No Language to display"
+    +"{{/sites}} ";
+	document.write(Mustache.to_html(template , data)); 
+
+    </script>
+
+</head>
+
+<body>
+
+
+
+
+</body>
+
+</html>

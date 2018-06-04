@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE = edge,chrome = 1">
+    <title>Backbone.js</title>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js" type="text/javascript"></script>
+    <script src="http://underscorejs.org/underscore.js" type="text/javascript"></script>
+    <script src="http://backbonejs.org/backbone.js" type="text/javascript"></script>
+    <script type="text/template" id="firstTemplate">
+        <div>FIRST TEMPLATE
+            <a href="#first">2nd page</a>
+        </div>
+        </script>
+        <script type="text/template" id="secondTemplate">
+            <div> SECOND TEMPLATE
+                <a href="#second">1st page</a>
+            </div>
+            </script>
+            <script type="text/javascript">
+            firstView = Backbone.View.extend({
+                el: $("#container"),
+                initialize: function() {
+                    this.render();
+                },
+                render: function() {
+                    var template = _.template($("#firstTemplate").html(), {});
+                    this.$el.html(template);
+
+                }
+            });
+
+            secondView = Backbone.View.extend({
+                el: $("#container"),
+                initialize: function() {
+                    this.render();
+                },
+                render: function() {
+                    var template = _.template($("#secondTemplate").html(), {});
+                    this.$el.html(template);
+
+                }
+            });
+
+
+            MyRouter = Backbone.Router.extend({
+                routes: {
+                    "": "firstPage",
+                    "first": "firstPage",
+                    "second": "secondPage"
+
+                },
+                firstPage: function() {
+                    new firstView();
+
+                },
+                secondPage: function() {
+
+                    new secondView();
+
+                }
+            });
+
+            var router = new MyRouter();
+            console.log(router)
+            Backbone.history.start();
+            </script>
+
+            <div id="container">Loading...</div>
+
+</body>
+
+</html>

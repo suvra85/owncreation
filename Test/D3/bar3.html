@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Two Line Chart -With Axes And Legend </title>
+
+    <style type="text/css">
+
+    .line1{
+      stroke:#ff9800;
+      fill:none;
+      stroke-width:2;
+    }
+
+    .line2{
+      stroke:#3f51b5;
+      fill:none;
+      stroke-width:2;
+    }
+
+    .x-axis,.y-axis{
+  stroke: black;
+  stroke-width: 1;
+  fill: none;
+}
+.legend{  fill:none;      stroke:#000;}
+
+.color1{
+      fill:#ff9800;
+
+
+}
+.color2{
+
+      fill:#3f51b5;
+ 
+}
+    </style>
+</head>
+
+<body>
+  
+<div class="chart"></div>
+
+    
+
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.0/d3.min.js"></script>
+ -->
+
+ <script type="text/javascript" src="d3.v3.min.js"></script>
+<script type="text/javascript">
+
+var width=800,height=500,margin={top:20,right:20,bottom:20,left:50};
+
+var svg=d3.select('.chart').append('svg').attr('width',width).attr('height',height);
+
+var parseDate = d3.time.format("%d-%b-%y").parse;
+
+var legendTags=['close','open'];
+
+d3.json('bar1.json',function(data){
+
+
+
+// data.forEach(function(d,i) {
+//    d.n = +d.n;
+//     return d;
+  
+
+//   });
+
+var xRange=d3.scale.linear()
+            .range([margin.left,width-margin.right])
+            .domain([0,4]);
+
+
+
+var yRange=d3.scale.linear()
+            .range([height-margin.top,margin.bottom])
+            .domain([0, d3.max(data, function(d) { return d.n; })]);
+
+
+var xAxis =d3.svg.axis()
+                  .scale(xRange)
+                  .orient("bottom").ticks(5);          
+
+var yAxis =d3.svg.axis()
+                  .scale(yRange)
+                  .orient("left"); 
+
+svg.append("g").attr("class", "x-axis").attr("transform", "translate(0," + (height-margin.bottom) + ")").call(xAxis);
+
+
+  
+svg.append("g").attr("class", "y-axis").attr("transform", "translate("+(margin.left)+",0)").call(yAxis);
+
+
+
+svg.append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+    .selectAll(".bar")
+    .data(data)
+     .enter()
+    .append("rect")
+    .attr("class", "bar")
+    .attr("x", function(d,i){ return xRange(i); })
+    .attr("y", function(d){ return yRange(d["n"]); })
+    .attr("height", function(d){ return height })
+    .attr("width", function(d){ return 20; });
+
+
+             
+});
+</script>
+
+</body>
+
+</html>
+
+
+
+

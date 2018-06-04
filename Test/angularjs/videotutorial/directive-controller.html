@@ -1,0 +1,30 @@
+<html>
+<head>
+	<title>Directive Controller</title>
+	<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body ng-app="myApp">
+
+
+<div comment-ctrl as="comment">
+	<input type="text" ng-model="comment.name"/>
+	{{comment}}
+</div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular.min.js"></script>
+<script type="text/javascript">
+angular.module("myApp",[])
+.directive("commentCtrl",function(){
+	return{
+		controller:function($scope,$attrs)
+			{
+				 this.name="Hello";
+				 this.date=Date();
+				 $scope[$attrs.as]=this;
+			}
+	};
+});
+
+</script>
+</body>
+</html>

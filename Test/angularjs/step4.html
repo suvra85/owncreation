@@ -1,0 +1,36 @@
+
+<!doctype html>
+<html ng-app="myModule">
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular.min.js"></script>
+	<script type="text/javascript">
+            var myApp=angular
+                .module("myModule",[])
+                .controller("myController",function ($scope)
+                 {
+                   var country={"name":"India","capital" : "New Delhi" ,"flag":"http://www.worldcountriesinfo.com/flags/flag-of-India.png"}
+
+                   $scope.country=country;
+                 	
+                 });
+
+        
+
+	</script>
+</head>
+<body  ng-controller="myController" >
+	<div ng-bind="country.name">
+	</div>
+        
+	 <div ng-bind="country.capital">
+   </div>
+
+
+   <div>
+    <img ng-src="{{country.flag}}" alt="{{ country.name }}"/>
+   </div>
+
+
+</body>
+</html>

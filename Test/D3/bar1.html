@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bar Chart -Horizontal</title>
+
+    <style type="text/css">
+.bar {
+  font: 10px sans-serif;
+  background-color: steelblue;
+  text-align: right;
+  padding: 3px;
+  margin: 1px;
+  color: white;
+}
+    </style>
+</head>
+
+<body>
+  
+<div class="chart"></div>
+
+    
+
+<!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.0/d3.min.js"></script>
+ -->
+
+ <script type="text/javascript" src="d3.v3.min.js"></script>
+<script type="text/javascript">
+
+
+
+
+
+d3.csv('bar-data.csv',function(data){
+var barWidth=40,width=(barWidth+10)*(data.length),height=800;
+var  date_format = d3.time.format("%y %b").parse;
+
+width1=width-30
+height1=height-100
+
+data.forEach(function(d) {
+    d.date = date_format(d.date);
+    d.value = +d.value;
+  });
+
+var svg=d3.select("div.chart")
+            .append("svg")
+            .attr('width',width)
+            .attr('height',height);
+
+var x=d3.time.scale().range([0,width1]).domain(d3.extent(data, function(d) { return d.date; }));;
+var y=d3.scale.linear().rangeRound([height1,0]).domain(d3.extent(data, function(d) { return d.value; }));
+
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left");
+
+
+svg.append("g").attr("class", "x-axis")
+    .attr("transform", "translate(0," + (height-30 )+ ")").call(xAxis);
+  
+svg.append("g").attr("class", "y-axis").attr("transform", "translate("+(width-10)+",0)").call(yAxis);
+
+
+
+
+//             svg.append('g')
+//              .attr("transform", "translate(100,20)")
+//              .selectAll('.bar')
+//              .data(data)
+//              .enter()
+//              .append('rect')
+//              .attr("class",'bar')
+//              .attr("width",'20px')
+//              .attr("height",function(d,i){ return d.value;})
+//              .attr("x",function(d,i){ return i*30+100;})
+//              .attr("y",'20px');
+
+
+
+
+
+
+});
+</script>
+
+</body>
+
+</html>
+
+
+
+

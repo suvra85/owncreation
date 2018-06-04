@@ -1,0 +1,915 @@
+Total Points Remaining
+
+1. Slider(HTML) -- - DONE
+
+2. Push Notifiication(API)
+
+3. API Issue in Merchant Search(result set not containing cashpack value and cashpack type)(API)
+
+4. In Merchant Favorite list sum of codes and deals not coming(API)
+
+5. Image - Top Trending(API)
+
+6. Image - Coupons List(API)
+
+7. Sum of code and deals in search(API)
+
+8. Alphabetical search(API)
+
+9. Merchant List Design(HTML) --
+
+    10. Top search(HTML) --
+
+    11. About Us(HTML)
+
+12. Newsletter(HTML)
+
+13. Submit code(HTML)
+
+14. Delete Icon in favorite List
+
+
+More Points
+
+1. Facebook ? ? ? ? ?
+
+    2. Add Links in merchant--DONE
+
+3. Social Share link share current path--fixed the issue
+
+4.
+
+
+Issues
+for CSS
+
+1. When you click on the search, the line goes away ?
+    2. Buttons throughout the site should either be blue
+for sign up
+for dark orange
+for submit actions
+3. Browse a coupon page
+    (A) The hover ovals on the letters, should be correct circles(B) The all stores and alphabet should be centered under search bar, with top margin added
+4. Refer a friend
+    (A) Cuts off on harleys monitor ? Possibly bug ?
+    (B) Add“ * ”to receive money from every referral(C) CAdd dialog
+for this star to the terms of use
+
+5. Top trending coupons / Featured merchants, the see all buttons have no animation treatment
+
+Date: 21 / 3 / 2017
+
+We have implemented following changes
+
+1. Fix Slider Responsive throughout the site
+
+2. Implement new merchant list design
+
+http: //dev02.developer24x7.com/www-cashpack/#/allmarchent
+
+    3. About page, breadcrumbs are incorrect..Fixed
+
+http: //dev02.developer24x7.com/www-cashpack/#/aboutUs 
+
+    4. All breadcrumbs should be the same on the site, make sure sections are capitalized correctly-- - Fixed
+
+5. Privacy page Needs to be formatted in a list format
+
+http: //dev02.developer24x7.com/www-cashpack/#/privacy
+
+    6. Refer a friend--All social media buttons are inactive..Fixed
+
+7. How it works page Remove drop shadows from text..Fixed
+
+8. FAQ Add captcha..Fixed
+
+9. Search bar
+    (A) When you click on the search, the text“ search” should go away-- - Fixed(B) When you click outside of the search box, the box should fade away-- - Fixed
+
+10. If on a major page, the header link should have highlighted bar underneath--Fixed
+
+11. If on a major page, the footer link should be highlighted--Fixed
+
+12. On feedback, change to contact us form
+    (A) Make phone number a general text box-- - Fixed(B) Add an“ organization” input-- - Fixed
+13. New coupons on home page Just show 5 new coupons, remove the dropdown notch--DONE
+http: //dev02.developer24x7.com/www-cashpack/#/home
+
+    14. Login / Signup Unable to login through facebook--Fixed
+
+
+Note:
+
+    1. Still top teading api, search api not returing image
+
+2. Need video
+for How it works page
+
+3. captcha coming from google api and there is no settings to adjust width.so it 's not possible to adjust width. we can align the captch center.
+
+4. Search bar should be a bit darker, the content below is readable..We get the new design and we will implement it in place or current search bar
+
+5. orghunter api is not workings.it gives 403 error.
+
+6. What does the bell do inthe header bar ?
+    -- - could we remove this
+for
+the time being.
+
+
+Date: 22 / 3 / 2017
+
+1. On click show form errors and on fill hide error
+for all forms
+
+2. Remove ng disable from submit buttons
+for all forms
+
+3.
+for refer show error right side of box-- - DONE
+
+4. fix issue
+for active menu.-- - DONE
+
+
+
+
+CSS ISSUE
+
+1. Coupon list
+--When content increases align button center, side border hit bottom
+2. Fix View All Button Color.Pleasee follow last sketch file color schema
+
+3. Breadcrumb alignment issue
+
+4. Shrink Favorite section.--Minimise font, reduce width of each box, tabs as per need
+
+5. Just like Search a coupon page fix search bar releted issue in all merchants page.align alphabate center.Increase width of serch bar
+Make serch bar and drop down align center.
+
+< cashpack - breadcamb link1name = ''
+link2name = ''
+link1 = ''
+link2 = '' > < /cashpack-breadcamb>
+
+.directive('cashpackBreadcamb', function() {
+    return {
+        template: '<div class="top-spacer"></div>' + '<div class="clr"></div>' + '<section class="full-wrapper breadcamb-wrapper" ng-cloak>' + '<div class="container">' + '<nav>' + '<div class="nav-wrapper">' + '<div class="col s12">' + '<a href="#/{{link1}}" class="breadcrumb first">{{link1name}}</a>' + '<a href="#/{{link2}}" class="breadcrumb">{{link2name}}</a>' + '</div>' + '</div>' + '</nav>' + '</div>' + '</section>',
+        scope: {
+            link1name: "@link1name",
+            link1: "@link1",
+            link2name: "@link2name",
+            link2: "@link2"
+        },
+        link: function(scope) {
+
+        }
+
+    };
+})
+
+
+
+.tab - section.my - tab li a {
+        font - size: 14 px;
+        font - weight: 800;
+    }
+    .coupons - listing {
+        padding: 20 px;
+        width: 49 % ;
+    }
+    .coupons - listing - text p {
+        font - size: 13 px;
+    }
+    .coupons - listing - text h5 {
+        font - size: 18 px;
+    }
+
+
+As per our discussion we have implemented following changes.
+
+1. Top trending coupons / Featured merchants, the see all buttons have no animation treatment
+    -- - Add Hover Effect
+2. Browse a coupon page - DONE
+The hover ovals on the letters, should be correct circles
+The all stores and alphabet should be centered under search bar, with top margin added
+
+3. New coupons on home page
+Just show 5 new coupons, remove the dropdown notch - DONE
+On home page, show top merchants under“ shopping online” - DONE
+
+4. Search bar should be a bit darker, the content below is readable--We have implemented new Search Bar Design
+
+5. Refer a friend
+Add“ * ”to receive money from every referral - DONE
+6. Install backpack button, nothing happens when clicked--Add Links(DONE)
+
+7. My favorites section-- - Shrink Favorite section.--Minimise font, reduce width
+
+
+23 / 3 / 2017
+
+1. Fix Header Cashpack extension link-- - DONE
+
+2. Fix Faq page hover-- - DONE
+
+3. Support a cause page
+Add orghunter api
+Hookup search functionality
+Buy the photos
+for support a cause / create a cause
+
+
+supportcauselisting
+supportacauseabout
+
+4. Home Page Top merchant image change-- - DONE
+
+
+    < a ng - href = '{{(islogincahspack) ? "javascript:void(0);" : #signup-pop"' > {
+    { element.title } } < /a>
+
+
+< a href = "#"
+ng -
+    if = "checkCookies() === 'show popup'"
+ng - click = "openArticle(article)" > {
+    { $parent.article.title } } < /a>
+
+< a ng - href = "{{$parent.article.url}}"
+target = "_blank"
+ng -
+    if = "checkCookies() === 'no popup'" > {
+        { $parent.article.title } } < /a>
+
+    < a ng -
+    if = "islogincahspack === false"
+class = "waves-effect waves-light btn section-and-btn-element"
+href = #signup - pop "> <img src="
+images / signup.png " alt="
+">Sign up and Earn</a> < a ng -
+    if = "islogincahspack === true"
+class = "waves-effect waves-light btn section-and-btn-element"
+href = "javascript:void(0);" > < img src = "images/signup.png"
+alt = "" > Sign up and Earn < /a>
+
+{
+    "categoryId": "A",
+    "categoryDesc": "Arts, Culture and Humanities"
+}, {
+    "categoryId": "B",
+    "categoryDesc": "Educational Institutions and Related Activities"
+}, {
+    "categoryId": "C",
+    "categoryDesc": "Environmental Quality, Protection and Beautification"
+}, {
+    "categoryId": "D",
+    "categoryDesc": "Animal-Related"
+}, {
+    "categoryId": "E",
+    "categoryDesc": "Health - General and Rehabilitative"
+}, {
+    "categoryId": "F",
+    "categoryDesc": "Mental Health, Crisis Intervention"
+}, {
+    "categoryId": "G",
+    "categoryDesc": "Diseases, Disorders, Medical Disciplines"
+}, {
+    "categoryId": "H",
+    "categoryDesc": "Medical Research"
+}, {
+    "categoryId": "I",
+    "categoryDesc": "Crime, Legal-Related"
+}, {
+    "categoryId": "J",
+    "categoryDesc": "Employment, Job-Related"
+}, {
+    "categoryId": "K",
+    "categoryDesc": "Food, Agriculture and Nutrition"
+}, {
+    "categoryId": "L",
+    "categoryDesc": "Housing, Shelter"
+}, {
+    "categoryId": "M",
+    "categoryDesc": "Public Safety, Disaster Preparedness and Relief"
+}, {
+    "categoryId": "N",
+    "categoryDesc": "Recreation, Sports, Leisure, Athletics"
+}, {
+    "categoryId": "O",
+    "categoryDesc": "Youth Development"
+}, {
+    "categoryId": "P",
+    "categoryDesc": "Human Services - Multipurpose and Other"
+}, {
+    "categoryId": "Q",
+    "categoryDesc": "International, Foreign Affairs and National Security"
+}, {
+    "categoryId": "R",
+    "categoryDesc": "Civil Rights, Social Action, Advocacy"
+}, {
+    "categoryId": "S",
+    "categoryDesc": "Community Improvement, Capacity Building"
+}, {
+    "categoryId": "T",
+    "categoryDesc": "Philanthropy, Voluntarism and Grantmaking Foundations"
+}, {
+    "categoryId": "U",
+    "categoryDesc": "Science and Technology Research Institutes, Services"
+}, {
+    "categoryId": "V",
+    "categoryDesc": "Social Science Research Institutes, Services"
+}, {
+    "categoryId": "W",
+    "categoryDesc": "Public, Society Benefit - Multipurpose and Other"
+}, {
+    "categoryId": "X",
+    "categoryDesc": "Religion-Related, Spiritual Development"
+}, {
+    "categoryId": "Y",
+    "categoryDesc": "Mutual/Membership Benefit Organizations, Other"
+}
+
+
+{
+    "ein": "760483741",
+    "charityName": "NORTHFORK CIVIC ASSOCIATION",
+    "category": "Not Provided",
+    "url": "http://www.orghunter.com/organization/760483741",
+    "donationUrl": "http://donate.makemydonation.org/donate/760483741",
+    "eligibleCd": 0,
+    "city": "HOUSTON",
+    "state": "Texas",
+    "zipCode": "77059-3564",
+    "deductibilityCd": 0,
+    "statusCd": 4,
+    "start": 0,
+    "rows": 20,
+    "recordCount": 2241651,
+    "score": 1,
+    "website": "",
+    "missionStatement": "",
+    "acceptingDonations": 0
+}
+
+23 / 3 / 2017
+
+1.Top Search Add some separator-- - DONE
+
+2. Top Merchant Page
+    (a) Coupon Border color same as fill color.-- - DONE
+
+    (b) hover effect just link favorite-- - DONE
+
+3. View all hover color change--not given
+
+4. Hover Color Favorite and share button change--not given
+
+5. Favorite and Share icon alignment isssue--DONE
+
+6. Landing page - there should a gab between heading "New Coupons"
+and underneath text--DONE
+
+7. All Merchant
+
+    (a) Correct Font
+for Category Search--DONE
+    (b) Fix alignment category search box--DONE(c) fix submit button color - DONE(d) Alphabates under search box--DONE(e) Height issue merchant box--DONE(f) Shrink pagination--DONE(g) outside click search box hide--DONE
+
+8) Top merchant Box - reduce all space.--DONE
+
+9. Scroll Bar under captch--DONE
+
+10. Remove shadow effect from buttons "How It works Page"
+
+11. Refer a friend.
+    -- - Right side image cut off
+for big and small resolution
+
+12. Favorite Page
+--Add Delete icon--DONE
+
+13. New About Us page-- - in progess
+
+14. Remove contact us-- - DONE
+
+15. Repalce My Charities with My Cause and add link to cause--Done
+
+16. My Accounts
+    (a) Correct Text Donations--Done(b) Remove footer Note--Done
+
+
+17. Refer a frined
+--T & C replace with terms--Done
+
+18. Home and Landing Page Top Treanding add name and corresponing links--Done
+
+
+24 / 3 / 2017
+
+1) Before login hover underline coming under search icon.Remove That.--DONE
+
+2) Refer a friend right image cut of in low n high resolution
+
+3) Delete icon hover effect in favorite deals--DONE
+
+4) Remove shadow effect from buttons--DONE
+
+5) Pagination fix in causes, supportlisting page--DONE
+
+6) Hover effect on coupon code same as favorite--DONE
+
+7) Home and Landing page replace text from "New Coupons"
+to "New Coupons & Deals"--DONE
+
+8) Boxed under New Coupons
+    (a) For deals add button with text "Get Deals"--DONE(b) By clicking that open in new tab--DONE(c) align coupon box and deal button to right(d) deal button color and hover color same as sign up button.
+
+9) Dubble click fav icon delete from fav list
+Feedback == > A user can delete favorite merchant, codes or deals via id(primaky key) of favorite table.But in each lising api does not
+return id of favorite table.
+
+10) Home and landing page Top merchant--DONE
+    (a) show exact value of codes and deals(b) show exact name(c) show exact cash back value or percentage(d) favorite and share functionality
+
+11) My Causes
+    (a) show edit button - DONE(b) add share button - DONE(c) and share funtionality(d) Text sentence
+case except Title / Name--DONE
+
+12) New Pages
+-- - About Us--DONE
+-- - New Two Pages
+-- - School Sign Up Page--DONE
+
+13)
+
+custom2 - 09 - 02 - 17. css line no 335
+text - transform:
+    capitalize;
+
+    createfundraiser
+
+    supportcauselisting-- -
+
+    schoolsignup
+
+    $stateProvider.html5mode({ enable: true })
+
+    < base href = "/www-cashpack" / >
+
+        #/home  --- home
+
+
+
+    < select ng - options = "item as item.name for item in statelist track by item.abbreviation"
+    ng - model = "selected"
+    placeholder = "state"
+    material - select watch >
+        < option value = "" > State < /option> < /select>
+
+    $scope.selected
+
+
+    RewriteEngine On
+    Options FollowSymLinks
+
+    RewriteBase /
+
+        RewriteCond % { REQUEST_FILENAME }!-f
+    RewriteCond % { REQUEST_FILENAME }!-d
+    RewriteRule ^ (.*) $ / #/$1 [L]
+
+
+    27 / 3 / 2017
+
+1) Add Loader when page loaded
+
+2) implement ngOption in all select box and remove blank selection.Fix select box caret sign and opacity
+
+3) Fix cause page
+
+
+    28 / 3 / 2017
+
+1) Remove max length from all input fields - DONE
+2) Refer a friend implement copy functionality
+    for code copy - DONE
+3) Feedback & Faqs Form(a) Remove Captcha scoll bar - DONE(b) Form Height issue - DONE(c) Faq question no 7.Replace 50 % with 25 % -DONE
+4) Replace text Top Trending Coupons with Featured Merchants--landing and home - DONE
+
+5) Replace text Featured Merchants with Featured Coupons--landing and home - DONE
+
+6) Merchant Details
+        (a) Show 3 lines - DONE(b) two buttons - > show(to show full content) less(to show limited mainly 3 lines of content) - DONE
+
+    http: //dev02.developer24x7.com/www-cashpack/#/merchant/target.com
+
+        (c) if no codes is availble then by
+default deals tab will be active - DONE
+
+http: //dev02.developer24x7.com/www-cashpack/#/merchant/walmart.com
+
+    7) Sinup and Login button align center DONE
+
+    8) SignUp and Sign In Pop Up
+
+        (a) add text and Link - DONE
+
+    SignUp
+    Don 't have an account? Sign up. 
+    Login
+    Already have an account ? Sign In.
+
+    (b) Or in lowercase - DONE
+
+9)(a) Replace second featured merchant to Barnes & Noble - DONE(b) Replace image - DONE
+
+10) Top search bar image change - ( in progress)
+
+    ng new app2material
+
+    ng - class = "{active: (alldealList.length == 0||allcodeList.length>0)}"
+
+    ng - class = "{active: allcodeList.length==0}"
+
+    .select - support - cover.ng - isolate - scope.input - field.select - wrapper input.select - dropdown {
+        border: medium none;
+        box - sizing: border - box;
+        height: 57 px;
+        margin: 0;
+        padding: 0 49 px;
+        font - size: 16 px;
+        text - overflow: ellipsis;
+    }
+
+
+
+    1.app
+    2. one factory js
+    3. one state / route js
+    4. one config js
+    5. one pipe js
+    6. one directive
+    7. multiple controller
+
+
+
+        ....
+
+    https: //sandboxdata.guidestar.org/v1_1/search?q=irs_foundation_code:15
+
+
+
+
+
+        //$scope.mobilestyle = {};
+        var w = angular.element($window);
+    $scope.ismobclass = '';
+    $scope.callresize = function() {
+        $scope.winwidth = w.width();
+        if (w.width() <= 992 && $scope.exp1 === true) {
+            // $scope.mobilestyle = {
+            // 'width': '281px',
+            // 'max-height': '649px',
+            // 'position': 'absolute',
+            // 'top': '50%',
+            // 'left': '50%',
+            // 'opacity': '0',
+            // 'display': 'none'
+
+            //angular.element("#drop-down-mob").addClass("mobsty")
+            //};
+
+        }
+    };
+
+
+    $scope.callresize();
+
+    w.bind('resize', function() {
+        $scope.winwidth = w.width();
+
+        // $scope.mobilestyle = {
+        //          'width': '281px',
+        //          'max-height': '649px',
+        //          'position': 'absolute',
+        //          'top': '50%',
+        //          'left': '50%',
+        //          'opacity': '1',
+        //          'display': 'block'
+        //      };
+        //  $scope.$apply();
+
+        //angular.element("#drop-down-mob").addClass("mobsty");
+
+
+
+    });
+
+
+
+
+    angular.element(document).on('click', '.imgmobclick', function() {
+        if (w.width() <= 992) {
+            //angular.element("#drop-down-mob").toggleClass("mobsty-show")
+        }
+
+    });
+    angular.element(document).on('click', '.drop-down-mob-close', function() {
+        //angular.element("#drop-down-mob").removeClass("mobsty-show")
+    });
+
+
+    angular.module("app", [])
+        .value("arrheight", [])
+        .directive('equalHeight', ['arrheight', function(arrheight) {
+            return {
+                link: function(scope, elem, attrs, ctrl) {
+                    arrheight.push(elem[0].offsetHeight); //  ADD IN ARRAY
+
+
+                }
+            }
+        }])
+
+
+    https: //plnkr.co/edit/nS0IYdPj34FIlx23BjUw?p=preview
+        https: //plnkr.co/edit/A10erjjW29PKrod2yoA2?p=preview
+
+
+        Menu Before Login
+        -- -- -- -- -- -- -- -- -- -- --
+        About
+    How It Works
+    FAQ
+    Merchants
+    Support a Cause
+    Refer A Friend
+
+    Menu After Login
+    -- -- -- -- -- -- -- -- -- -- --
+    About
+    How It Works
+    FAQ
+    Favorites
+    Merchants
+    Support a Cause
+    My Cause
+    Refer A Friend
+
+
+
+CashPack API LIST
+
+1. https://api.cashpack.org/user  -POST - Pass email ,password
+
+2. https://api.cashpack.org/authenticate -POST - Pass email ,password
+
+3. https://api.cashpack.org/forgotpassword  -POST - Pass email 
+
+4. https://api.cashpack.org/user  -Pass x-cap-toke,x-cap-user-id 
+
+5. http://api.cashpack.org/user/favorites -POST  -Pass x-cap-toke,x-cap-user-id from headers and pass type and merchant/code/dealid
+
+6. http://api.cashpack.org/user/favorites -GET  -Pass x-cap-toke,x-cap-user-id from headers
+
+7. http://api.cashpack.org/user/favorites -DELETE -Pass x-cap-toke,x-cap-user-id from headers and pass favorite id as parameter 
+
+8. http://api.cashpack.org/facebook -POST -Pass facebook code from headers
+
+9. http://api.cashpack.org/offers/trending -GET  -Pass x-cap-toke,x-cap-user-id from headers
+
+10. http://api.cashpack.org/domain/featured -GET  -Pass x-cap-toke,x-cap-user-id from headers
+
+11. http://api.cashpack.org/offers/latest -GET  -Pass x-cap-toke,x-cap-user-id from headers
+
+12. http://api.cashpack.org/domain/search  -GET - Pass term  as a parameter 
+
+13. http://api.cashpack.org/domain/<domain-name> - GET 
+
+14. http://api.cashpack.org/offers/all -POST -Pass x-cap-toke,x-cap-user-id from headers
+
+15. 
+
+16. 
+
+var mainModule = angular.module('mainModule');
+
+mainModule.factory('headerFactory', ['$http','$cookieStore','$stateParams',function($http,$cookieStore,$stateParams) {
+    return {
+        
+       
+       
+        
+       
+        
+        Marchentsubmitcode: function( Obj ) {
+
+                   console.log(Obj);
+                   
+            return $http.post('http://api.cashpack.org/submitcode', JSON.stringify(Obj),{
+                "headers": {
+                    "content-type": "application/json",
+                     "x-cp-token" :$cookieStore.get('userToken'),
+                     "x-cp-user-id": $cookieStore.get('userId') 
+                }
+            });
+        },
+       
+        searchCouponList: function(Obj){
+            return $http.post('http://api.cashpack.org/offers/search',JSON.stringify(Obj),{
+                headers:{
+                    "Content-Type":'application/json' ,
+                     "x-cp-token" :$cookieStore.get('userToken'),
+                    "x-cp-user-id": $cookieStore.get('userId') 
+                }
+            });
+        },
+        topMerchantList: function(Obj){
+
+           return $http.post('http://api.cashpack.org/domain/top',JSON.stringify(Obj),{
+                headers:{
+                    "content-type":'application/json',
+                     "x-cp-token" :$cookieStore.get('userToken'),
+                    "x-cp-user-id": $cookieStore.get('userId') 
+                }
+            })
+        },
+        schoolsList: function(Obj){
+           return $http({
+                     method: 'POST',
+                     url: 'http://api.cashpack.org/schools',
+                     headers: {
+                       "Content-Type" : "application/json"
+                     },
+                     data: JSON.stringify(Obj)
+           });
+
+         },
+        charityList: function(Obj){
+           return $http({
+                     method: 'GET',
+                     url: 'http://data.orghunter.com/v1/charitysearch?user_key=e9cf64aa0e7ee97f7168a0764b643344',
+                     headers: {
+                       "Content-Type" : "application/x-www-form-urlencoded",
+                     }
+           });
+      
+
+         },
+        charityDetails: function(Obj){
+           return $http({
+                     method: 'GET',
+                     url: 'http://data.orghunter.com/v1/charitysearch?user_key=e9cf64aa0e7ee97f7168a0764b643344',
+                     headers: {
+                       "Content-Type" : "application/json"
+                     }
+           });
+      
+
+         } ,
+         resetPassWithHash: function(Obj) {
+            return $http.post('https://api.cashpack.org/resetpassword', JSON.stringify(Obj), {
+                "headers": {
+                    "content-type": "application/json"
+                }
+            });
+        },
+        statesList: function(){
+          return $http.get('settings/states.json');
+        },  
+        merchantAlphabetSearch: function(Obj){
+          return $http({
+                     method: 'POST',
+                     url: 'http://api.cashpack.org/domain/byletter',
+                     headers: {
+                       "Content-Type" : "application/json"
+                     },
+                     data: JSON.stringify(Obj)
+           });
+
+        }, 
+        getMarchentDetails: function(domainname) {
+            return $http.get('http://api.cashpack.org/domain/' + domainname,{
+                "headers": {
+                    "content-type": "application/json",
+                     "x-cp-token" :$cookieStore.get('userToken'),
+                     "x-cp-user-id": $cookieStore.get('userId') 
+                }
+            });
+        },
+        getOfferFeatured : function() {
+         return $http.get('http://api.cashpack.org/offers/featured', {
+                "headers": {
+                    "x-cp-token" :$cookieStore.get('userToken'),
+                    "x-cp-user-id": $cookieStore.get('userId')
+                    }
+                }
+             ); 
+        },
+
+
+
+    };
+}]);
+
+
+
+    Hello,
+
+    Update Of Cash Pack
+
+    1. Before login when user clicks logo then redirected to landing page
+    i.e
+
+    http: //webtest.cashpack.org/#/   or http://dev02.developer24x7.com/www-cashpack/#/
+
+        After login when user clicks logo then redirected to home page
+    i.e
+
+    http: //webtest.cashpack.org/#/home   or http://dev02.developer24x7.com/www-cashpack/#/home
+
+    2. Revised Menu List
+
+    Menu Before Login
+    -- -- -- -- -- -- -- -- -- -- --
+    About
+    How It Works
+    FAQ
+    Merchants
+    Support a Cause
+    Refer A Friend
+
+    Menu After Login
+    -- -- -- -- -- -- -- -- -- -- --
+    About
+    How It Works
+    FAQ
+    Favorites
+    Merchants
+    Support a Cause
+    My Cause
+    Refer A Friend
+
+    3. We have edited the content of following Pages
+
+    Landing Page, Home Page, About Page, Faqs Page
+
+    Note: Nothing is written in How It Works Proof page and Who We Are does not exist
+
+
+    More Information
+
+    1. School Api is working but pagination is not working properly
+
+    https: //api.cashpack.org/schools
+
+        And School API returns lists of school and each school contains id,school name,country name,city,state,district. As per design  each school should contain cause also . 
+
+
+        Please check link http: //webtest.cashpack.org/#/causes 
+
+        or
+
+        http://dev02.developer24x7.com/www-cashpack/#/causes  
+
+   Response Of Each School
+
+    {
+        "id": 92622,
+        "schoolName": "ADAMS ELEMENTARY",
+        "countyName": "SPOKANE COUNTY",
+        "city": "SPOKANE",
+        "state": "WA",
+        "district": "SPOKANE SCHOOL DISTRICT"
+    },
+
+  2. Merhant alphabetical search is working but pagination is not working. 
+  		http://api.cashpack.org/domain/byletter
+
+
+  3. Support a cause linked with 
+
+      http://dev02.developer24x7.com/www-cashpack/#/fundraiser   or  http: //webtest.cashpack.org/#/fundraiser
+
+
+     When user clicks 
+
+  4. About Orghunter
+  
+     As 
+
+.material-tooltip {
+    width: 200px;
+}
+
+4/3/2017
+
+1. 
+
+
+5/3/2017
+
+1.
+
+

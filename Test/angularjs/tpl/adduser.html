@@ -1,0 +1,16 @@
+ <h2>Add new user</h2>
+  <form  name="AddNewForm" id="add-new-form">
+    <label for="username">Username:</label>
+    <input type="text" ng-model="createuser.username" required />
+    <label for="first_name">First name:</label>
+    <input type="text" ng-model="createuser.first_name" required />
+    <label for="last_name">Last name:</label>
+    <input type="text" ng-model="createuser.last_name" required />
+    <label for="address">Address:</label>
+    <input type="text" ng-model="createuser.address" />
+    <input type="hidden" ng-model="createuser.id"> 
+    <br/>
+    <button class="btn btn-primary" ng-disabled="AddNewForm.$invalid || isUnchanged(createuser)" id="add-new-btn" ng-click="saveNew(createuser)">Save!</button>
+    <button class="btn btn-primary" ng-click="cancelData()">Cancel!</button>
+
+  </form>

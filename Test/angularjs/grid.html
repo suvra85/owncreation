@@ -1,0 +1,25 @@
+<table>
+     <tr>
+    <td ng-click="sortData(name)">
+      Name
+    </td>
+        <td  ng-click="sortData(role)">
+      Role
+    </td>
+        <td >
+      Image
+    </td>
+     </tr>
+
+      <tr ng-repeat="row in cricketers|orderBy:sortColumn:reverseColumn">
+    <td>
+      {{ row.name}}   
+    </td>
+        <td>
+{{ row.role}}    
+   </td>
+        <td>
+<img ng-src="{{ row.image}}" alt="{{ row.name}}"/>   
+   </td>
+     </tr>
+    </table>

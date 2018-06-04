@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-rc.1/angular.min.js"></script>
+	<script>
+	var app=angular.module("mainApp",[]);
+	/*
+		// Shared Scope
+
+	app.directive("myFirstDirective",function(){
+		function linkFunction($scope,elem,attrs)
+		{
+	        $scope.greeting="Hello";
+	        $scope.changeName=function(newMsg){
+	        $scope.greeting=newMsg;
+	        };
+
+		}
+	
+	 return {
+	              template :"Hello World",
+				  restrict :'EA',
+				  link:linkFunction,
+				  template:'<span ng-click="changeName(\'Hi\')"> Current Text {{greeting}}</span>'
+	     }
+	});*/
+
+// Iscolated Scope
+app.directive("myFirstDirective",function(){
+		function linkFunction(scope,elem,attrs)
+		{
+	        scope.greeting="Hello";
+	        scope.changeName=function(){
+	        scope.greeting=scope.property;
+	        };
+
+		}
+	
+	 return {
+	              template :"Hello World",
+	              scope:true,
+				  restrict :'EA',
+				  link:linkFunction,
+				  template:'<span ng-click="changeName()"> Current Text {{greeting}}</span>'
+	     }
+	});
+	
+	app.controller("myApp",function($scope){
+	   $scope.property="Controller Specific property";
+	});
+
+	</script>
+
+</head>
+<body ng-app="mainApp" ng-controller="myApp">
+
+<div class="" my-first-directive></div>
+<my-first-directive></my-first-directive>
+	
+</body>
+</html>
