@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <!-- Required meta tags always come first --
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Title Page</title>
+
+        <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+</head>
+
+<body>
+    <h3 style="text-align: center; padding: 23px;"> CANVAS APPLICATION</h3>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingOne">
+                                    <h5 class="mb-0">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                  SELECT SHAPE
+                                </a>
+                                 </h5>
+                                </div>
+                                <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="card-block">
+                                        <ul class="list-group">
+                                            <li class="list-group-item drawshape" id="Circle"><a href="#">Circle</a></li>
+                                            <li class="list-group-item drawshape" id="Ellipse"><a href="#">Ellipse</a></li>
+                                            <li class="list-group-item drawshape" id="Line"><a href="#">Line</a></li>
+                                            <li class="list-group-item drawshape" id="Polygon"><a href="#">Polygon</a></li>
+                                            <li class="list-group-item drawshape" id="Polyline"><a href="#">Polyline</a></li>
+                                            <li class="list-group-item drawshape" id="Rect"><a href="#">Rect</a></li>
+                                            <li class="list-group-item drawshape" id="Triangle"><a href="#">Triangle</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingTwo">
+                                    <h5 class="mb-0">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          WRITE TEXT
+                        </a>
+                      </h5>
+                                </div>
+                                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                    <div class="card-block">
+                                        <form id="frmText" name="frmText">
+                                            <div class="form-group">
+                                                <label for="email">Your Text:</label>
+                                                <input type="text" class="form-control" id="textvalue" value="Write Your Text">
+                                            </div>
+                                            <button type="submit" class="btn btn-default">GO</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingThree">
+                                    <h5 class="mb-0">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                           CHOOSE STYLE
+                        </a>
+                      </h5>
+                                </div>
+                                <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
+                                    <div class="card-block">
+
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingFour">
+                                    <h5 class="mb-0">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            UPLOAD IMAGE OR GIVE IMAGE PATH
+                        </a>
+                      </h5>
+                                </div>
+                                <div id="collapseFour" class="collapse" role="tabpanel" aria-labelledby="headingFour">
+                                    <div class="card-block">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading"> <small>Bootstrap files upload</small></div>
+                                            <div class="panel-body">
+                                                <!-- Standar Form -->
+                                               <!--  <h4>Select files from your computer</h4>
+                                                <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
+                                                    <div class="form-inline">
+                                                        <div class="form-group">
+                                                            <input type="file" name="files[]" id="js-upload-files" multiple>
+                                                        </div>
+                                                        <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload files</button>
+                                                    </div>
+                                                </form> -->
+                                                <!-- Drop Zone -->
+                                                <h4>Or drag and drop files below</h4>
+                                                <div class="upload-drop-zone" id="drop-zone">
+                                                    Just drag and drop files here
+                                                    <img src="" id="img_id">
+                                                </div>
+
+                                                
+                                                <!-- Progress Bar -->
+                                                <!-- <div class="progress">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                                        <span class="sr-only">60% Complete</span>
+                                                    </div>
+                                                </div> -->
+                                                <!-- Upload Finished -->
+<!--                                                 <div class="js-upload-finished">
+                                                    <h3>Processed files</h3>
+                                                    <div class="list-group">
+                                                        <a href="#" class="list-group-item list-group-item-success"><span class="badge alert-success pull-right">Success</span>image-01.jpg</a>
+                                                        <a href="#" class="list-group-item list-group-item-success"><span class="badge alert-success pull-right">Success</span>image-02.jpg</a>
+                                                    </div>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <canvas id="ext" width="700" height="500"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/1.7.6/fabric.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js"></script>
+    <script type="text/javascript">
+    // create a wrapper around native canvas element (with id="c")
+    var canvas = new fabric.Canvas('ext');
+
+    // ADD SHAPE
+    $(document).on('click', ".drawshape a", function() {
+        var stype = $(this).parent().attr("id");
+        switch (stype) {
+            case 'Circle':
+                var circle = new fabric.Circle({
+                    radius: 20,
+                    fill: 'green',
+                    left: 100,
+                    top: 100
+                });
+                canvas.add(circle);
+                break;
+
+            case 'Ellipse':
+                var ellipse = new fabric.Ellipse({
+                    left: 30,
+                    top: 30,
+                    originX: 'left',
+                    originY: 'top',
+                    rx: 90,
+                    ry: 60,
+                    angle: 0,
+                    fill: '',
+                    stroke: 'red',
+                    strokeWidth: 3,
+                });
+                canvas.add(ellipse);
+                break;
+
+            case 'Line':
+                var line = new fabric.Line([50, 100, 200, 200], {
+                    left: 170,
+                    top: 150,
+                    stroke: 'black'
+                });
+                canvas.add(line);
+                break;
+
+                //case  'Polygon': var circle = new fabric.Circle({
+                //     radius: 20,
+                //     fill: 'green',
+                //     left: 100,
+                //     top: 100
+                // });
+                // canvas.add(circle); break;
+
+                //case  'Polyline': var circle = new fabric.Circle({
+                //     radius: 20,
+                //     fill: 'green',
+                //     left: 100,
+                //     top: 100
+                // });
+                // canvas.add(circle); break;
+
+            case 'Rect':
+                var rect = new fabric.Rect({
+                    left: 150,
+                    top: 150,
+                    fill: 'red',
+                    width: 20,
+                    height: 20
+                });
+                canvas.add(rect);
+                break;
+
+            case 'Triangle':
+                var triangle = new fabric.Triangle({
+                    width: 20,
+                    height: 30,
+                    fill: 'blue',
+                    left: 50,
+                    top: 50
+                });
+                canvas.add(triangle);
+                break;
+
+
+        }
+
+
+    });
+
+
+
+    $("#frmText").submit(function(e) {
+        e.preventDefault();
+        var str = $('#textvalue').val();
+        var text = new fabric.Text(str, {
+            left: 130,
+            top: 130
+        });
+        canvas.add(text);
+    });
+
+
+    //REMOVE DATA
+    $(document).mousedown(function(e) {
+        if (e.button == 2) {
+            var activeobj = canvas.getActiveObject();
+
+            console.log(activeobj);
+            if (activeobj) {
+                if (confirm('Are you sure?')) {
+                    canvas.getActiveObject().remove();
+
+                }
+
+            }
+            return false;
+        }
+        return true;
+    });
+
+
+
+
+
+
+
+    // $("#save").click(function(){
+    //   $("#ext").get(0).toBlob(function(blob){
+    //      saveAs(blob,'mycard.png');
+    //   });
+    // });
+
+
+    $(function(){
+ 'use strict';
+
+    // UPLOAD CLASS DEFINITION
+    // ======================
+
+    var dropZone = document.getElementById('drop-zone');
+    var uploadForm = document.getElementById('js-upload-form');
+
+    var startUpload = function(files) {
+       var formData = new FormData();
+       formData.append("files", files);
+
+       $.ajax({
+        url: 'upload.php',
+        method: 'post',
+        data: formData,
+        processData: false,
+        contentType: false,
+        success: function(response) {
+          alert('Files uploaded successfully.');
+        }
+   });
+
+
+        console.log(files)
+    }
+
+    // uploadForm.addEventListener('submit', function(e) {
+    //     var uploadFiles = document.getElementById('js-upload-files').files;
+    //     e.preventDefault()
+
+    //     startUpload(uploadFiles)
+    // })
+
+    dropZone.ondrop = function(e) {
+        e.preventDefault();
+        this.className = 'upload-drop-zone';
+
+        startUpload(e.dataTransfer.files)
+    }
+
+    dropZone.ondragover = function() {
+        this.className = 'upload-drop-zone drop';
+        return false;
+    }
+
+    dropZone.ondragleave = function() {
+        this.className = 'upload-drop-zone';
+        return false;
+    }
+    });
+
+
+
+
+    </script>
+    <style type="text/css">
+    .canvas-container {
+        border: 1px solid #CAC;
+    }
+
+
+    /* layout.css Style */
+.upload-drop-zone {
+  height: 200px;
+  border-width: 2px;
+  margin-bottom: 20px;
+}
+
+/* skin.css Style*/
+.upload-drop-zone {
+  color: #ccc;
+  border-style: dashed;
+  border-color: #ccc;
+  line-height: 200px;
+  text-align: center
+}
+.upload-drop-zone.drop {
+  color: #222;
+  border-color: #222;
+}
+    </style>
+</body>
+
+</html>
