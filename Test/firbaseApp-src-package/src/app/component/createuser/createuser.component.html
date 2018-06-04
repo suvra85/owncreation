@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 col-md-offset-4">
+            <div class="account-box">
+                <div class="logo ">
+                    <img src="http://placehold.it/90x38/fff/6E329D&text=LOGO" alt="" />
+                </div>
+                <alert type="warning" dismissible="true" *ngIf="iserror">
+                    <p>{{error}}</p>
+                </alert>
+                <form class="form-signin" #formData='ngForm' (ngSubmit)="createUser(formData)">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Email" required autofocus (ngModel)="email" name="email" />
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" placeholder="Password" required (ngModel)="password" name="password" />
+                    </div>
+                    <button class="btn btn-lg btn-block purple-bg" type="submit">
+                        Sign Up</button>
+                </form>
+                <div class="or-box">
+                    <span class="or">OR</span>
+                    <div class="row">
+                        <div class="col-md-6 row-block">
+                            <a class="btn btn-facebook btn-block" (click)="login('F')">Facebook</a>
+                        </div>
+                        <div class="col-md-6 row-block">
+                            <a class="btn btn-google btn-block" (click)="login('G')">Google</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="or-box row-block">
+                    <div class="row">
+                        <div class="col-md-12 row-block">
+                            <a [routerLink]="['/']" class="btn btn-primary btn-block">Sign in your Account</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

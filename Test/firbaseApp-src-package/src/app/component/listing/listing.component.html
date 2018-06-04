@@ -1,0 +1,29 @@
+<div class="container">
+<div class="row">
+<div class="page-heading">
+<h1>{{listing.title}}</h1>
+</div>
+
+<div class="col-md-4">
+
+<img [src]="image">
+<a [routerLink]="['/edit-listing/'+listing.$key]">Edit</a>
+<a (click)="deleteProp(listing.$key)">Delete</a>
+
+</div>	
+<div class="col-md-8">
+
+<ul class="list-group">
+  <li class="list-group-item">
+    {{listing.about}}
+  </li>
+  <li class="list-group-item">
+    Price: {{listing.price}}
+  </li>
+</ul>
+</div>	
+
+</div>
+
+</div>
+

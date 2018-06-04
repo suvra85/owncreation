@@ -1,0 +1,28 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" [routerLink]="['/dashboard']">Firebase and Angular 2</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li *ngIf="(af.auth|async)"><a [routerLink]="['/listings']" [routerLinkActive]="['is-active']">List Property</a></li>
+                <li *ngIf="(af.auth|async)"><a [routerLink]="['/listings']" [routerLinkActive]="['is-active']">Chart</a></li>
+                <li *ngIf="(af.auth|async)"><a [routerLink]="['/calender']" [routerLinkActive]="['is-active']">Calender</a></li>
+                <li *ngIf="(af.auth|async)"><a [routerLink]="['/listings']" [routerLinkActive]="['is-active']">Messages</a></li>
+
+               <!--  <li *ngIf="(af.auth|async)"><a [routerLink]="['/add-listing']">Add Property</a></li> -->
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li *ngIf="!(af.auth|async)"><a href="javascript:void(0);" (click)="login()">Login</a></li>
+                <li *ngIf="(af.auth|async)"><a  href="javascript:void(0);" (click)="logout()">Logout</a></li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </div>
+</nav>

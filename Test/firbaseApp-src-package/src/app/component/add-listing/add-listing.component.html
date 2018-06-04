@@ -1,0 +1,79 @@
+<!-- <form [formGroup]="addProp" (ngSubmit)="addData($event)">
+    <input formControlName="beedroom" type="text" placeholder="Enter No. of Beedrooms">
+    <input formControlName="city" type="text" placeholder="Enter city of Property">
+    <input formControlName="image" type="text" placeholder="Enter image of Property">
+    <input formControlName="owner" type="text" placeholder="Enter owner of Property">
+    <input formControlName="path" type="text" placeholder="Enter path of Property">
+    <input formControlName="price" type="text" placeholder="Enter price of Property">
+    <input formControlName="title" type="text" placeholder="Enter title of Property">
+    <textarea formControlName="about"></textarea>
+    <button type="submit">Submit</button>
+</form> -->
+<section class="content-header">
+    <h1>
+            Add <small>Property</small>
+          </h1>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <a class="btn btn-primary btn-sm" [routerLink]="['/listings']">Property</a>
+                </div>
+                <!-- /.box-header -->
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <form class="form-horizonta" #formData='ngForm' (ngSubmit)="addData(formData)" id="form-addData" name="form-addData">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="title" name="title"   [ngModel]="title"  />
+
+                                </div>
+                              <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="city" required (ngModel)="city" name="city" />
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="owner" required (ngModel)="owner" name="owner" />
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="beedroom" required (ngModel)="beedroom" name="beedroom" />
+                                </div>
+
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="price" required (ngModel)="price" name="price" />
+                                </div>
+
+
+                                <div class="form-group">
+                                   <!--  <input type="text" class="form-control" placeholder="image" required (ngModel)="image" name="image" /> -->
+
+                                   <input type="file" (ngModel)="image" id="image" name="image">
+                                </div>
+<!-- 
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="path" required (ngModel)="path" name="path" />
+                                </div> -->
+                                 <div class="form-group">
+                                    <textarea class="form-control" placeholder="about" required (ngModel)="about" name="about"></textarea> 
+                                </div> 
+
+
+                                <button class="btn btn-lg btn-block purple-bg" type="submit">
+                                    Create</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
